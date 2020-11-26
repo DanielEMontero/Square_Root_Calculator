@@ -1,3 +1,22 @@
+###########################################################
+###########################################################
+
+################ SQUARE ROOT CALCULATOR ###################
+
+###########################################################
+
+####################### DESCRIPTION #######################
+# This program let you calculate a square root of a any
+# positive number with three differents methods.
+# The user can select the method of calculation.
+
+######################### AUTHOR ##########################
+# Ing. DANIEL EDUARDO MONTERO RAMÍREZ
+
+
+import sys
+
+
 def exhaustive(number,answer):
     while answer**2 < number:
         answer += 1
@@ -12,7 +31,7 @@ def Approximate(number,answer):
     epsilon = 0.01
     step = epsilon**2
 
-    while abs(number**2 - answer) >= epsilon and answer <= number:
+    while abs(answer**2 - number) >= epsilon and answer <= number:
         answer += step
     if abs(answer**2 - number) >= epsilon:
         answer = False
@@ -46,10 +65,10 @@ def main():
         method = int(method)
     except:
         print('Please insert a valid character. Only positive numbers and valid method')
-        quit     
+        sys.exit()  
     if method <0 or method > 3 or number < 0:
         print('Please insert a valid character. Only positive numbers and valid method')
-        quit
+        sys.exit()
         
     if method == 1:
         value = exhaustive(number,answer)
